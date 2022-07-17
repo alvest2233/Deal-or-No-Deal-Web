@@ -10,21 +10,31 @@
 HTML doc vs external JS file for better google chrome compatibility.-->
 <script> 
 
-$(document).on('load', function() {
-  var tables = $("table");
-  //Grabs all the tables
-  tables.hide().first().show();
-  //Hides all the tables except first
-  $("button.button").on("click", function() {
-    //Adds eventListner to buttons
-    tables.hide();
-    //Hides all the tables
-    var tableTarget = $(this).data("table");
-    //Gets data# of button
-    $("table#" + tableTarget).show();
-    //Shows the table with an id equal to data attr of the button
-  })
-})();
+// Waits until page load to start jquery
+$(document).ready(function(){
+// hides tables on load
+        $("#1").hide();
+        $("#2").hide();
+        $("#3").show();
+// upon button click 1, shows table 1
+    $("button.button1").click(function(){
+        $("#1").show();
+        $("#2").hide();
+        $("#3").hide();
+    });
+// upon button click 2, shows table 2
+    $("button.button2").click(function(){
+        $("#1").hide();
+        $("#2").show();
+        $("#3").hide();
+    });
+// upon button click 3, shows table 3
+    $("button.button3").click(function(){
+        $("#1").hide();
+        $("#2").hide();
+        $("#3").show();
+    });
+});
 
 </script>
 
@@ -50,9 +60,9 @@ table, h3, h1, p, img, .center {text-align: center;
 <table>
     <tr>
         <!-- Creates various buttons for the different board layouts, -->>
-        <td><button class="button" id="button board1" data-table="1" href="#">Board 1</button></td>
-        <td><button class="button" id="button board2" data-table="2" href="#">Board 2</button></td>
-        <td><button class="button" id="button board3" data-table="3" href="#">Board 3</button></td>
+        <td><button class="button1" id="button board1" >Board 1</button></td>
+        <td><button class="button2" id="button board2" >Board 2</button></td>
+        <td><button class="button3" id="button board3" >Board 3</button></td>
     </tr>    
 </table>
 
@@ -62,6 +72,9 @@ table, h3, h1, p, img, .center {text-align: center;
 
 <!-- Board layout 1-->>
 <table id="1">
+    <tr>
+        <th>Board 1</th>
+    </tr>
     <tr>
         <th>Case No.</th>
         <th>Case Amount</th>
@@ -152,6 +165,9 @@ table, h3, h1, p, img, .center {text-align: center;
 <!-- Board layout 2-->>
 <table id="2">
     <tr>
+        <th>Board 2</th>
+    </tr>
+    <tr>
         <th>Case No.</th>
         <th>Case Amount</th>
         <th>Case Opened?</th>
@@ -241,6 +257,9 @@ table, h3, h1, p, img, .center {text-align: center;
 <!-- Board layout 3-->>
 <table id="3">
     <tr>
+        <th>Board 3</th>
+    </tr>
+    <tr>
         <th>Case No.</th>
         <th>Case Amount</th>
         <th>Case Opened?</th>
@@ -329,6 +348,7 @@ table, h3, h1, p, img, .center {text-align: center;
 
 <br>
 
+<!-- Banker's estimate-->>
 <table>
     <tr>
         <td>
