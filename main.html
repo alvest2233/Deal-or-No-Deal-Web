@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="viewport" content="width=device-width, initial-scale=1">
 
 <!--Imports JQuery and js external code file-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
@@ -9,14 +9,16 @@
 <!--Code for button table switcher, banker algorithm. Inside
 HTML doc vs external JS file for better google chrome compatibility.-->
 <script> 
+console.log("js works");
 
-//gameState;
 // Waits until page load to start jquery
 $(document).ready(function(){
 // hides tables on load
         $("#1").hide();
         $("#2").hide();
-        $("#3").show();
+        $("#3").hide();
+        meanSquareSum = 2.0314 * Math.pow(10, 12);
+        nCases = 16;
 // upon button click 1, shows table 1, gives gamestate id and resets checkboxes
     $("button.button1").click(function(){
         $("#1").show();
@@ -24,6 +26,8 @@ $(document).ready(function(){
         $("#3").hide();
         $('input[type=checkbox]').prop('checked',false);
         gameState = 1;
+        meanSquareSum = 2.0314 * Math.pow(10, 12);
+        nCases = 16;
     });
 // upon button click 2, shows table 2, gives gamestate id and resets checkboxes
     $("button.button2").click(function(){
@@ -32,6 +36,8 @@ $(document).ready(function(){
         $("#3").hide();
         $('input[type=checkbox]').prop('checked',false);
         gameState = 2;
+        meanSquareSum = 2.0314 * Math.pow(10, 12);
+        nCases = 16;
     });
 // upon button click 3, shows table 3, gives gamestate id and resets checkboxes
     $("button.button3").click(function(){
@@ -40,13 +46,43 @@ $(document).ready(function(){
         $("#3").show();
         $('input[type=checkbox]').prop('checked',false);
         gameState = 3;
+        meanSquareSum = 2.0314 * Math.pow(10, 12);
+        nCases = 16;
     });
+
+
+    $("button.updateBanker").click(function(){
+            let sum = 0
+        for (let i = 0; i < 16; i++) 
+        {
+     if (document.querySelector(`checkbox_${i}`).isSelected)
+     {
+    sum += document.querySelector(`#checkbox_${i}`).value
+    }
+    }
+    console.log(sum);
 });
-
-//meanSquareSum = 2.0314 * Math.pow(10, 12);
-//nCases = 16;
+//     if (gameState === 1)
+//     {
+//         $('#amtDisplay').html(function(index, html){
+//         return html.replace('%amtDiplay%', gameState);
+//         }); 
+//         console.log("roseak smellz");
+//     }
+//     else if (gameState === 2)
+//     {
+//         $('#amtDisplay').html(function(index, html){
+//         return html.replace('%amtDiplay%', gameState);
+//         }); 
+//     }
+//     else if (gameState === 3)
+//     {
+//         $('#amtDisplay').html(function(index, html){
+//         return html.replace('%amtDiplay%', gameState);
+//         }); 
+//     }
+// });
 //bankerEstimate = Math.sqrt((meanSquareSum/nCases))
-
 </script>
 
 <style>
@@ -94,82 +130,82 @@ table, h3, h1, p, img, .center {text-align: center;
     <tr>
         <td>1</td>
         <td>$200,000</td>
-        <td><input type="checkbox" name="case1" />&nbsp;</td>
+        <td><input type="checkbox" id="case1T1" value="200000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>2</td>
         <td>$100</td>
-        <td><input type="checkbox" name="case2" />&nbsp;</td>
+        <td><input type="checkbox" id="case2T1" value="100"/>&nbsp;</td>
     </tr>
     <tr>
         <td>3</td>
         <td>$500,000</td>
-        <td><input type="checkbox" name="case3" />&nbsp;</td>
+        <td><input type="checkbox" id="case3T1" value="500000" />&nbsp;</td>
     </tr>
     <tr>
         <td>4</td>
         <td>$5,000</td>
-        <td><input type="checkbox" name="case4" />&nbsp;</td>
+        <td><input type="checkbox" id="case4T1" value="5000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>5</td>
         <td>$50,000</td>
-        <td><input type="checkbox" name="case5" />&nbsp;</td>
+        <td><input type="checkbox" id="case5T1" value="50000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>6</td>
         <td>$750,000</td>
-        <td><input type="checkbox" name="case6" />&nbsp;</td>
+        <td><input type="checkbox" id="case6T1" value="750000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>7</td>
         <td>$10,000</td>
-        <td><input type="checkbox" name="case7" />&nbsp;</td>
+        <td><input type="checkbox" id="case7T1" value="10000" />&nbsp;</td>
     </tr>
     <tr>
         <td>8</td>
         <td>$25,000</td>
-        <td><input type="checkbox" name="case8" />&nbsp;</td>
+        <td><input type="checkbox" id="case8T1" value="25000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>9</td>
         <td>$1,000,000</td>
-        <td><input type="checkbox" name="case9" />&nbsp;</td>
+        <td><input type="checkbox" id="case9T1" value="1000000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>10</td>
         <td>$500</td>
-        <td><input type="checkbox" name="case10" />&nbsp;</td>
+        <td><input type="checkbox" id="case10T1" value="500"/>&nbsp;</td>
     </tr>
     <tr>
         <td>11</td>
         <td>$1,000</td>
-        <td><input type="checkbox" name="case11" />&nbsp;</td>
+        <td><input type="checkbox" id="case11T1" value="1000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>12</td>
         <td>$400,000</td>
-        <td><input type="checkbox" name="case12" />&nbsp;</td>
+        <td><input type="checkbox" id="case12T1" value="400000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>13</td>
         <td>$5</td>
-        <td><input type="checkbox" name="case13" />&nbsp;</td>
+        <td><input type="checkbox" id="case13T1" value="5"/>&nbsp;</td>
     </tr>
     <tr>
         <td>14</td>
         <td>$75,000</td>
-        <td><input type="checkbox" name="case14" />&nbsp;</td>
+        <td><input type="checkbox" id="75000" />&nbsp;</td>
     </tr>
     <tr>
         <td>15</td>
-        <td>$.01</td>
-        <td><input type="checkbox" name="case15" />&nbsp;</td>
+        <td>$1</td>
+        <td><input type="checkbox" id="case15T1" value="1"/>&nbsp;</td>
     </tr>
     <tr>
         <td>16</td>
         <td>$100,000</td>
-        <td><input type="checkbox" name="case16" />&nbsp;</td>
+        <td><input type="checkbox" id="case16T1" value="100000"/>&nbsp;</td>
     </tr>
 </table>
 
@@ -186,82 +222,82 @@ table, h3, h1, p, img, .center {text-align: center;
     <tr>
         <td>1</td>
         <td>$5</td>
-        <td><input type="checkbox" name="case1" />&nbsp;</td>
+        <td><input type="checkbox" id="case1T2" value="5" />&nbsp;</td>
     </tr>
     <tr>
         <td>2</td>
         <td>$200,000</td>
-        <td><input type="checkbox" name="case2" />&nbsp;</td>
+        <td><input type="checkbox" id="case2T2" value="200000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>3</td>
-        <td>$.01</td>
-        <td><input type="checkbox" name="case3" />&nbsp;</td>
+        <td>$1</td>
+        <td><input type="checkbox" id="case3T2" value="1"/>&nbsp;</td>
     </tr>
     <tr>
         <td>4</td>
         <td>$25,000</td>
-        <td><input type="checkbox" name="case4" />&nbsp;</td>
+        <td><input type="checkbox" id="case4T2" value="25000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>5</td>
         <td>$100,000</td>
-        <td><input type="checkbox" name="case5" />&nbsp;</td>
+        <td><input type="checkbox" id="case5T2" value="100000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>6</td>
         <td>$500</td>
-        <td><input type="checkbox" name="case6" />&nbsp;</td>
+        <td><input type="checkbox" id="case6T2" value="500"/>&nbsp;</td>
     </tr>
     <tr>
         <td>7</td>
         <td>$500,000</td>
-        <td><input type="checkbox" name="case7" />&nbsp;</td>
+        <td><input type="checkbox" id="case7T2" value="500000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>8</td>
         <td>$1,000</td>
-        <td><input type="checkbox" name="case8" />&nbsp;</td>
+        <td><input type="checkbox" id="case8T2" value="1000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>9</td>
         <td>$10,000</td>
-        <td><input type="checkbox" name="case9" />&nbsp;</td>
+        <td><input type="checkbox" id="case9T2" value="10000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>10</td>
         <td>$75,000</td>
-        <td><input type="checkbox" name="case10" />&nbsp;</td>
+        <td><input type="checkbox" id="case10T2" value="75000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>11</td>
         <td>$1,000,000</td>
-        <td><input type="checkbox" name="case11" />&nbsp;</td>
+        <td><input type="checkbox" id="case11T2" value="1000000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>12</td>
         <td>$50,000</td>
-        <td><input type="checkbox" name="case12" />&nbsp;</td>
+        <td><input type="checkbox" id="case12T2" value="50000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>13</td>
         <td>$400,000</td>
-        <td><input type="checkbox" name="case13" />&nbsp;</td>
+        <td><input type="checkbox" id="case13T2" value="400000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>14</td>
         <td>$750,000</td>
-        <td><input type="checkbox" name="case14" />&nbsp;</td>
+        <td><input type="checkbox" id="case14T2" value="750000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>15</td>
         <td>$100</td>
-        <td><input type="checkbox" name="case15" />&nbsp;</td>
+        <td><input type="checkbox" id="case15T2" value="100"/>&nbsp;</td>
     </tr>
     <tr>
         <td>16</td>
         <td>$5,000</td>
-        <td><input type="checkbox" name="case16" />&nbsp;</td>
+        <td><input type="checkbox" id="case16T2" value="5000"/>&nbsp;</td>
     </tr>
 </table>
 
@@ -278,82 +314,82 @@ table, h3, h1, p, img, .center {text-align: center;
     <tr>
         <td>1</td>
         <td>$10,000</td>
-        <td><input type="checkbox" name="case1" />&nbsp;</td>
+        <td><input type="checkbox" id="case1T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>2</td>
         <td>$1,000</td>
-        <td><input type="checkbox" name="case2" />&nbsp;</td>
+        <td><input type="checkbox" id="case2T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>3</td>
         <td>$1,000,000</td>
-        <td><input type="checkbox" name="case3" />&nbsp;</td>
+        <td><input type="checkbox" id="case3T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>4</td>
         <td>$400,000</td>
-        <td><input type="checkbox" name="case4" />&nbsp;</td>
+        <td><input type="checkbox" id="case4T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>5</td>
         <td>$5</td>
-        <td><input type="checkbox" name="case5" />&nbsp;</td>
+        <td><input type="checkbox" id="case5T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>6</td>
         <td>$750,000</td>
-        <td><input type="checkbox" name="case6" />&nbsp;</td>
+        <td><input type="checkbox" id="case6T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>7</td>
         <td>$100,000</td>
-        <td><input type="checkbox" name="case7" />&nbsp;</td>
+        <td><input type="checkbox" id="case7T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>8</td>
         <td>$100</td>
-        <td><input type="checkbox" name="case8" />&nbsp;</td>
+        <td><input type="checkbox" id="case8T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>9</td>
         <td>$200,000</td>
-        <td><input type="checkbox" name="case9" />&nbsp;</td>
+        <td><input type="checkbox" id="case9T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>10</td>
         <td>$25,000</td>
-        <td><input type="checkbox" name="case10" />&nbsp;</td>
+        <td><input type="checkbox" id="case10T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>11</td>
         <td>$5,000</td>
-        <td><input type="checkbox" name="case11" />&nbsp;</td>
+        <td><input type="checkbox" id="case11T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>12</td>
         <td>$500,000</td>
-        <td><input type="checkbox" name="case12" />&nbsp;</td>
+        <td><input type="checkbox" id="case12T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>13</td>
         <td>$.01</td>
-        <td><input type="checkbox" name="case13" />&nbsp;</td>
+        <td><input type="checkbox" id="case13T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>14</td>
         <td>$500</td>
-        <td><input type="checkbox" name="case14" />&nbsp;</td>
+        <td><input type="checkbox" id="case14T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>15</td>
         <td>$50,000</td>
-        <td><input type="checkbox" name="case15" />&nbsp;</td>
+        <td><input type="checkbox" id="case15T3" />&nbsp;</td>
     </tr>
     <tr>
         <td>16</td>
         <td>$75,000</td>
-        <td><input type="checkbox" name="case16" />&nbsp;</td>
+        <td><input type="checkbox" id="case16T3" />&nbsp;</td>
     </tr>
 </table>
 
@@ -368,10 +404,10 @@ table, h3, h1, p, img, .center {text-align: center;
     </tr>
     <tr>
         <td>
-            <button class="updateBanker" id="updateBankButton">Update Banker:</button>
+            <input type="submit" class="updateBanker" id="updateBankButton">Update Banker:</input>
         </td>
         <td>
-            <h5>PLACEHOLDER AMOUNT</h5>
+            <h5 id="amtDisplay">PLACEHOLDER AMOUNT</h5>
         </td>
     </tr>
 </table> 
