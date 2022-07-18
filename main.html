@@ -50,40 +50,23 @@ $(document).ready(function(){
         nCases = 16;
     });
 
-
-    $("button.updateBanker").click(function(){
-            let sum = 0
-        for (let i = 0; i < 16; i++) 
-        {
-     if (document.querySelector(`checkbox_${i}`).isSelected)
-     {
-    sum += document.querySelector(`#checkbox_${i}`).value
-    }
-    }
-    console.log(sum);
-    });
-});
-//     if (gameState === 1)
-//     {
-//         $('#amtDisplay').html(function(index, html){
-//         return html.replace('%amtDiplay%', gameState);
-//         }); 
-//         console.log("roseak smellz");
-//     }
-//     else if (gameState === 2)
-//     {
-//         $('#amtDisplay').html(function(index, html){
-//         return html.replace('%amtDiplay%', gameState);
-//         }); 
-//     }
-//     else if (gameState === 3)
-//     {
-//         $('#amtDisplay').html(function(index, html){
-//         return html.replace('%amtDiplay%', gameState);
-//         }); 
-//     }
-// });
-//bankerEstimate = Math.sqrt((meanSquareSum/nCases))
+// gets case value integer, squares it and adds it to sum value. 
+// n cases decreases by one for each case picked
+// final value on button press is used to calculate estimate
+    $(".updateBanker").click(function() {
+                let sum = 0;
+                for (let i = 1; i <= 16; i++) {
+                    if ($(`#case${i}T1`).prop('checked')) {
+                        sum += Math.pow(Number($(`#case${i}T1`).prop('value')), 2);
+                        nCases --;
+                    }
+                }
+                console.log(sum);
+                bankerEstimate = Math.sqrt((meanSquareSum - sum) / nCases);
+                console.log(bankerEstimate);
+                $('#amtDisplay').text("Banker's Offer: $" + bankerEstimate);
+            });
+        });
 </script>
 
 <style>
@@ -109,7 +92,7 @@ button
 {
     background-color: rgb(236, 224, 167);
     }
-    
+
 body {
     background-color: rgb(80, 200, 255)
 }
@@ -217,7 +200,7 @@ body {
     <tr>
         <td>14</td>
         <td>$75,000</td>
-        <td><input type="checkbox" id="75000" />&nbsp;</td>
+        <td><input type="checkbox" id="75000" value="75000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>15</td>
