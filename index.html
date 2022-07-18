@@ -68,7 +68,7 @@ $(document).ready(function(){
                 console.log(nCases);
                 bankerEstimate = Math.sqrt((meanSquareSum - sum) / nCases);
                 console.log(bankerEstimate);
-                $('#amtDisplay').text("Banker's Offer: $" + bankerEstimate);
+                $('#amtDisplay').text("Banker's Offer: $" + Math.round(bankerEstimate));
             });
         });
 </script>
@@ -77,6 +77,33 @@ $(document).ready(function(){
 table{
     background-color: black;
     border: 1px solid black;
+    width: 50%;
+    height: 100%;
+
+    -ms-transform: scale(1.2); /* IE */
+  -moz-transform: scale(1.2); /* FF */
+  -webkit-transform: scale(1.2); /* Safari and Chrome */
+  -o-transform: scale(1.2); /* Opera */
+  transform: scale(1.2);
+}
+
+button, input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.checkboxtext
+{
+  /* Checkbox text */
+  font-size: 110%;
+  display: inline;
 }
 
 th {
@@ -88,9 +115,11 @@ td {
     background-color: rgb(236, 224, 167);
     border: 1px solid black;
 }
-table, h3, h1, p, img, .center {text-align: center;
+table, h3, h1, p, img, .center {
+    text-align: center;
         margin-left: auto;
-        margin-right: auto;}
+        margin-right: auto;
+    }
 
 button
 {
@@ -100,6 +129,19 @@ button
 body {
     background-color: rgb(80, 200, 255)
 }
+
+img
+{
+    -ms-transform: scale(1.2); /* IE */
+  -moz-transform: scale(1.2); /* FF */
+  -webkit-transform: scale(1.2); /* Safari and Chrome */
+  -o-transform: scale(1.2); /* Opera */
+  transform: scale(1.2);
+  display:block;
+
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
 
 </head>
@@ -107,7 +149,7 @@ body {
 <body>
     
 
-<img src="DOND_logo.png" alt="Deal or No Deal logo here" class="center">
+<img src="DOND_logo.png" alt="Deal or No Deal logo here">
 <h1>DEAL OR NO DEAL Banker Simulator</h1>
 <p>HTML, CSS and JS by Tiago Alves and Roseak Lin</p>
 
@@ -122,6 +164,8 @@ body {
     </tr>    
 </table>
 
+<br>
+<br>
 <br>
 
 <!-- Table values for the various different amounts-->> 
@@ -204,7 +248,7 @@ body {
     <tr>
         <td>14</td>
         <td>$75,000</td>
-        <td><input type="checkbox" id="75000" value="75000"/>&nbsp;</td>
+        <td><input type="checkbox" id="case14T1" value="75000"/>&nbsp;</td>
     </tr>
     <tr>
         <td>15</td>
@@ -402,6 +446,8 @@ body {
     </tr>
 </table>
 
+<br>
+<br>
 <br>
 
 <!-- Banker's estimate-->>
