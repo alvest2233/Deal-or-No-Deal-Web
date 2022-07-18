@@ -60,13 +60,13 @@ $(document).ready(function(){
                 let sum = 0;
                 for (let i = 1; i <= 16; i++) {
                     if ($(`#case${i}T${gameState}`).prop('checked')) {
-                        sum += Math.pow(Number($(`#case${i}T${gameState}`).prop('value')), 2);
+                        sum += (Number($(`#case${i}T${gameState}`).prop('value')));
                         nCases --;
                     }
                 }
                 console.log(sum);
                 console.log(nCases);
-                bankerEstimate = Math.sqrt((meanSquareSum - sum) / nCases);
+                bankerEstimate = 12275.30 + (0.748 * sum) - (2714.74 * nCases) - 40000 + Math.round(.0000006986 * Math.pow(sum, 2) + 32.623 * Math.pow(nCases, 2));
                 console.log(bankerEstimate);
                 $('#amtDisplay').text("Banker's Offer: $" + Math.round(bankerEstimate));
             });
