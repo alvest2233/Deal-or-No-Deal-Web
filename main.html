@@ -54,14 +54,18 @@ $(document).ready(function(){
 // n cases decreases by one for each case picked
 // final value on button press is used to calculate estimate
     $(".updateBanker").click(function() {
+                meanSquareSum = 2.0314 * Math.pow(10, 12);
+                nCases = 16;
+                bankerEstimate = 0;
                 let sum = 0;
                 for (let i = 1; i <= 16; i++) {
-                    if ($(`#case${i}T1`).prop('checked')) {
-                        sum += Math.pow(Number($(`#case${i}T1`).prop('value')), 2);
+                    if ($(`#case${i}T${gameState}`).prop('checked')) {
+                        sum += Math.pow(Number($(`#case${i}T${gameState}`).prop('value')), 2);
                         nCases --;
                     }
                 }
                 console.log(sum);
+                console.log(nCases);
                 bankerEstimate = Math.sqrt((meanSquareSum - sum) / nCases);
                 console.log(bankerEstimate);
                 $('#amtDisplay').text("Banker's Offer: $" + bankerEstimate);
